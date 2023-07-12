@@ -26,34 +26,32 @@ export default function App() {
   const [backendData, setBackendData] = useState([{}])
   const [userName, setUserName] = useState("no name")
   const [userID, setUserID] = useState(0)
-  const [QR, setQR] = useState(0)
+  const [QR, setQR] = useState("aa12")
   const [scanResult, setScanResult] = useState(false)
 
 
  
 
-  useEffect(() => {
-    const scanner = new Html5QrcodeScanner('reader', {
-      qrbox: {
-        width: 150,
-        height: 150,
-        disableFlip: false
-      },
-      fps: 5,
-    },true)
+  // useEffect(() => {
+  //   const scanner = new Html5QrcodeScanner('reader', {
+  //     qrbox: {
+  //       width: 150,
+  //       height: 150,
+  //       disableFlip: false
+  //     },
+  //     fps: 5,
+  //   },true)
   
-    scanner.render(success);
+  //   scanner.render(success);
   
-    function success(result){
-      scanner.clear()
-      setScanResult(result)
+  //   function success(result){
+  //     scanner.clear()
+  //     setScanResult(result)
       
-      setQR(result.replace("http://", ""))
-      console.log("fdsfds:", result)
-    }
-  
-  
-  },[])
+  //     setQR(result.replace("http://", ""))
+  //     //console.log("fdsfds:", result)
+  //   }  
+  // },[])
   
 
 
@@ -81,7 +79,7 @@ export default function App() {
       <div>Scanned QR code = {QR}</div>      
       <div>
         <button className='border-2 m-1 rounded-md hover:bg-green-500 border-blue-400 bg-zinc-200 p-1 text-xl' onClick={() => console.log("clicked")}> <Link to={{pathname: `/borrowbook/${QR}`}}>Ausleihen</Link></button>
-        <button className='border-2 m-1 rounded-md hover:bg-green-500 border-blue-400 bg-zinc-200 p-1 text-xl' onClick={() => console.log("clicked")}> <Link to={{pathname: `/returnbook/aa12}`}}>Zürückgeben</Link></button>
+        <button className='border-2 m-1 rounded-md hover:bg-green-500 border-blue-400 bg-zinc-200 p-1 text-xl' onClick={() => console.log("clicked")}> <Link to={{pathname: `/returnbook/${QR}`}}>Zürückgeben</Link></button>
       </div>  
       {/* <button className='border-2 m-1 rounded-md hover:bg-green-500 border-blue-400 bg-zinc-200 p-1 text-xl' onClick={handleClick}>Name: {userName}</button> */}
      

@@ -65,7 +65,7 @@ export default function BorrowPage() {
         <button 
           className='border-2 bg-green-500 rounded-xl mt-2'            
           > 
-          Borrow 
+          Ausleihen 
         </button>
 
       </form>     

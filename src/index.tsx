@@ -24,7 +24,7 @@ const router = createBrowserRouter([
     element: <BorrowPage/>
   },
   {
-    path: "returnbook/:id",
+    path: "returnbook/:qr",
     element: <ReturnPage/>
   },
 ]);
